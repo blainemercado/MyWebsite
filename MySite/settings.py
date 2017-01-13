@@ -25,7 +25,12 @@ SECRET_KEY = 'e*z3_!a*y1d6p2qp2spp!qd%jb6#2y%nq-jez#96*&t38n+byy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+	"35.163.230.55",
+	"blainemercado.com",
+	"blainemercado",
+	"www.blainemercado.com"
+]
 
 
 # Application definition
@@ -78,8 +83,12 @@ WSGI_APPLICATION = 'MySite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'MySite',
+        'USER': 'blainemercado',
+        'PASSWORD': 'pawsmcgee',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -121,3 +130,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
