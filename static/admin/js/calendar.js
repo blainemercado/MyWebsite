@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*global gettext, pgettext, get_format, quickElement, removeChildren, addEvent*/
+=======
+/*global gettext, get_format, quickElement, removeChildren*/
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
 /*
 calendar.js - Calendar functions by Adrian Holovaty
 depends on core.js for utility functions like removeChildren or quickElement
@@ -8,6 +12,7 @@ depends on core.js for utility functions like removeChildren or quickElement
     'use strict';
     // CalendarNamespace -- Provides a collection of HTML calendar-related helper functions
     var CalendarNamespace = {
+<<<<<<< HEAD
         monthsOfYear: [
             gettext('January'),
             gettext('February'),
@@ -31,6 +36,10 @@ depends on core.js for utility functions like removeChildren or quickElement
             pgettext('one letter Friday', 'F'),
             pgettext('one letter Saturday', 'S')
         ],
+=======
+        monthsOfYear: gettext('January February March April May June July August September October November December').split(' '),
+        daysOfWeek: gettext('S M T W T F S').split(' '),
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
         firstDayOfWeek: parseInt(get_format('FIRST_DAY_OF_WEEK')),
         isLeapYear: function(year) {
             return (((year % 4) === 0) && ((year % 100) !== 0 ) || ((year % 400) === 0));
@@ -100,6 +109,7 @@ depends on core.js for utility functions like removeChildren or quickElement
                 nonDayCell.className = "nonday";
             }
 
+<<<<<<< HEAD
             function calendarMonth(y, m) {
                 function onClick(e) {
                     e.preventDefault();
@@ -108,6 +118,8 @@ depends on core.js for utility functions like removeChildren or quickElement
                 return onClick;
             }
 
+=======
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
             // Draw days of month
             var currentDay = 1;
             for (i = startingPos; currentDay <= days; i++) {
@@ -129,8 +141,13 @@ depends on core.js for utility functions like removeChildren or quickElement
                 }
 
                 var cell = quickElement('td', tableRow, '', 'class', todayClass);
+<<<<<<< HEAD
                 var link = quickElement('a', cell, currentDay, 'href', '#');
                 addEvent(link, 'click', calendarMonth(year, month));
+=======
+
+                quickElement('a', cell, currentDay, 'href', 'javascript:void(' + callback + '(' + year + ',' + month + ',' + currentDay + '));');
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
                 currentDay++;
             }
 
@@ -204,5 +221,8 @@ depends on core.js for utility functions like removeChildren or quickElement
         }
     };
     window.Calendar = Calendar;
+<<<<<<< HEAD
     window.CalendarNamespace = CalendarNamespace;
+=======
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
 })();

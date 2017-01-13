@@ -67,6 +67,32 @@ function removeChildren(a) {
 }
 
 // ----------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+// Cross-browser xmlhttp object
+// from http://jibbering.com/2002/4/httprequest.html
+// ----------------------------------------------------------------------------
+var xmlhttp;
+/*@cc_on @*/
+/*@if (@_jscript_version >= 5)
+    try {
+        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+        try {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch (E) {
+            xmlhttp = false;
+        }
+    }
+@else
+    xmlhttp = false;
+@end @*/
+if (!xmlhttp && typeof XMLHttpRequest !== 'undefined') {
+    xmlhttp = new XMLHttpRequest();
+}
+
+// ----------------------------------------------------------------------------
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
 // Find-position functions by PPK
 // See http://www.quirksmode.org/js/findpos.html
 // ----------------------------------------------------------------------------
@@ -153,6 +179,7 @@ function findPosY(obj) {
         return this.getTwoDigitHour() + ':' + this.getTwoDigitMinute() + ':' + this.getTwoDigitSecond();
     };
 
+<<<<<<< HEAD
     Date.prototype.getFullMonthName = function() {
         return typeof window.CalendarNamespace === "undefined"
             ? this.getTwoDigitMonth()
@@ -162,6 +189,10 @@ function findPosY(obj) {
     Date.prototype.strftime = function(format) {
         var fields = {
             B: this.getFullMonthName(),
+=======
+    Date.prototype.strftime = function(format) {
+        var fields = {
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
             c: this.toString(),
             d: this.getTwoDigitDate(),
             H: this.getTwoDigitHour(),

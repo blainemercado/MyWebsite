@@ -15,7 +15,11 @@
 	margin: 0px;
 	padding: 0px;
 	list-style-position: outside;
+<<<<<<< HEAD
 	list-style: none;
+=======
+	list-style: none;	
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
 }
 
 .acResults ul li {

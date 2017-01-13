@@ -5,6 +5,19 @@
 (function($) {
     'use strict';
 
+<<<<<<< HEAD
+=======
+    function html_unescape(text) {
+        // Unescape a string that was escaped using django.utils.html.escape.
+        text = text.replace(/&lt;/g, '<');
+        text = text.replace(/&gt;/g, '>');
+        text = text.replace(/&quot;/g, '"');
+        text = text.replace(/&#39;/g, "'");
+        text = text.replace(/&amp;/g, '&');
+        return text;
+    }
+
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
     // IE doesn't accept periods or dashes in the window name, but the element IDs
     // we use to generate popup window names may contain them, therefore we map them
     // to allowed characters in a reversible way so that we can locate the correct
@@ -57,7 +70,11 @@
     }
 
     function updateRelatedObjectLinks(triggeringLink) {
+<<<<<<< HEAD
         var $this = $(triggeringLink);
+=======
+        var $this = django.jQuery(triggeringLink);
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
         var siblings = $this.nextAll('.change-related, .delete-related');
         if (!siblings.length) {
             return;
@@ -65,7 +82,11 @@
         var value = $this.val();
         if (value) {
             siblings.each(function() {
+<<<<<<< HEAD
                 var elm = $(this);
+=======
+                var elm = django.jQuery(this);
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
                 elm.attr('href', elm.attr('data-href-template').replace('__fk__', value));
             });
         } else {
@@ -74,6 +95,13 @@
     }
 
     function dismissAddRelatedObjectPopup(win, newId, newRepr) {
+<<<<<<< HEAD
+=======
+        // newId and newRepr are expected to have previously been escaped by
+        // django.utils.html.escape.
+        newId = html_unescape(newId);
+        newRepr = html_unescape(newRepr);
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
         var name = windowname_to_id(win.name);
         var elem = document.getElementById(name);
         if (elem) {
@@ -88,7 +116,11 @@
                 }
             }
             // Trigger a change event to update related links if required.
+<<<<<<< HEAD
             $(elem).trigger('change');
+=======
+            django.jQuery(elem).trigger('change');
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
         } else {
             var toId = name + "_to";
             var o = new Option(newRepr, newId);
@@ -99,12 +131,23 @@
     }
 
     function dismissChangeRelatedObjectPopup(win, objId, newRepr, newId) {
+<<<<<<< HEAD
         var id = windowname_to_id(win.name).replace(/^edit_/, '');
         var selectsSelector = interpolate('#%s, #%s_from, #%s_to', [id, id, id]);
         var selects = $(selectsSelector);
         selects.find('option').each(function() {
             if (this.value === objId) {
                 this.textContent = newRepr;
+=======
+        objId = html_unescape(objId);
+        newRepr = html_unescape(newRepr);
+        var id = windowname_to_id(win.name).replace(/^edit_/, '');
+        var selectsSelector = interpolate('#%s, #%s_from, #%s_to', [id, id, id]);
+        var selects = django.jQuery(selectsSelector);
+        selects.find('option').each(function() {
+            if (this.value === objId) {
+                this.innerHTML = newRepr;
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
                 this.value = newId;
             }
         });
@@ -112,18 +155,32 @@
     }
 
     function dismissDeleteRelatedObjectPopup(win, objId) {
+<<<<<<< HEAD
         var id = windowname_to_id(win.name).replace(/^delete_/, '');
         var selectsSelector = interpolate('#%s, #%s_from, #%s_to', [id, id, id]);
         var selects = $(selectsSelector);
         selects.find('option').each(function() {
             if (this.value === objId) {
                 $(this).remove();
+=======
+        objId = html_unescape(objId);
+        var id = windowname_to_id(win.name).replace(/^delete_/, '');
+        var selectsSelector = interpolate('#%s, #%s_from, #%s_to', [id, id, id]);
+        var selects = django.jQuery(selectsSelector);
+        selects.find('option').each(function() {
+            if (this.value === objId) {
+                django.jQuery(this).remove();
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
             }
         }).trigger('change');
         win.close();
     }
 
     // Global for testing purposes
+<<<<<<< HEAD
+=======
+    window.html_unescape = html_unescape;
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
     window.id_to_windowname = id_to_windowname;
     window.windowname_to_id = windowname_to_id;
 
@@ -140,10 +197,13 @@
     window.dismissAddAnotherPopup = dismissAddRelatedObjectPopup;
 
     $(document).ready(function() {
+<<<<<<< HEAD
         $("a[data-popup-opener]").click(function(event) {
             event.preventDefault();
             opener.dismissRelatedLookupPopup(window, $(this).data("popup-opener"));
         });
+=======
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
         $('body').on('click', '.related-widget-wrapper-link', function(e) {
             e.preventDefault();
             if (this.href) {

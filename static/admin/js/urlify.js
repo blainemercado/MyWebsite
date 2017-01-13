@@ -91,6 +91,7 @@
         'ç': 'c', 'ə': 'e', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
         'Ç': 'C', 'Ə': 'E', 'Ğ': 'G', 'İ': 'I', 'Ö': 'O', 'Ş': 'S', 'Ü': 'U'
     };
+<<<<<<< HEAD
     var GEORGIAN_MAP = {
         'ა': 'a', 'ბ': 'b', 'გ': 'g', 'დ': 'd', 'ე': 'e', 'ვ': 'v', 'ზ': 'z',
         'თ': 't', 'ი': 'i', 'კ': 'k', 'ლ': 'l', 'მ': 'm', 'ნ': 'n', 'ო': 'o',
@@ -98,6 +99,8 @@
         'ქ': 'q', 'ღ': 'g', 'ყ': 'y', 'შ': 'sh', 'ჩ': 'ch', 'ც': 'c', 'ძ': 'dz',
         'წ': 'w', 'ჭ': 'ch', 'ხ': 'x', 'ჯ': 'j', 'ჰ': 'h'
     };
+=======
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
 
     var ALL_DOWNCODE_MAPS = [
         LATIN_MAP,
@@ -113,8 +116,12 @@
         ARABIC_MAP,
         LITHUANIAN_MAP,
         SERBIAN_MAP,
+<<<<<<< HEAD
         AZERBAIJANI_MAP,
         GEORGIAN_MAP
+=======
+        AZERBAIJANI_MAP
+>>>>>>> 4022fc7946d2b6db29ef921a75a1a44058c92971
     ];
 
     var Downcoder = {
